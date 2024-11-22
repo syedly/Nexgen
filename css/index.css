@@ -1,0 +1,196 @@
+body {
+    background-color: rgb(248, 249, 250)
+}
+
+.navbar-brand {
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+.nav-item a {
+    color: #555;
+    font-size: 0.9rem;
+}
+
+.nav-item a:hover {
+    color: #0073b1; 
+}
+
+.nav-search {
+    width: 300px;
+}
+
+.profile-icon {
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    overflow: hidden;
+}
+
+.profile-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.navbar {
+    background-color: #fff !important; 
+    border-bottom: 1px solid #ccc; 
+}
+
+.nav-link {
+    color: #555 !important; 
+}
+
+.nav-link:hover {
+    color: #0073b1 !important; 
+}
+
+.profile-icon {
+    border: 1px solid #ccc;
+}
+body {
+    background-color: #f8f9fa;
+}
+.profile-card {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 20px;
+}
+.sidebar-section {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 20px;
+}
+.main-content {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.profile-img {
+    height: 80px;
+}
+
+.desc {
+    font-size: 15px;
+}
+
+.location {
+    font-size: 12px;
+    color: #858282;
+}
+
+.parent-div {
+    justify-content: space-evenly;
+    display: flex;
+    margin-right: 40px;
+    margin-top: 10px;
+}
+
+.parent-div2 {
+    justify-content: start;
+    display: flex;
+    height: 40px;
+    margin-bottom: 10px;
+}
+
+.img-img {
+    height: 25px;
+}
+
+.img1 {
+    max-width: 100%; /* Scale down to fit */
+    max-height: 100%; /* Scale down to fit */
+    margin: auto; /* Center the image */
+    display: block; /* For proper centering */
+}
+
+.buttons {
+    justify-content: space-between;
+    display: flex;
+}
+
+.card-slider .card {
+    min-width: 18rem;
+    margin: 0 auto;
+}
+
+.carousel-inner {
+    display: flex;
+    justify-content: center;
+}
+
+.carousel-item {
+    display: flex;
+    justify-content: center;
+}
+
+.card-img-top {
+    height: 150px;
+    object-fit: cover;
+}
+
+/* Styling for the card slider */
+.card-slider-container {
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+}
+
+.card-slider {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.card {
+    min-width: 18rem;
+    margin: 10px;
+    flex-shrink: 0;
+}
+
+.card-img-top {
+    height: 350px;
+    object-fit: cover;
+}
+
+.slider-controls {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.slider-controls button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 5px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.slider-controls button:hover {
+    background-color: #0056b3;
+}
+
+/* For the card content inside the container */
+.container {
+    margin-top: 30px;
+}
+
+.star-rating {
+    font-size: 1.2rem; /* Adjust size as needed */
+    color: #f5c518; /* Gold color for stars */
+    margin-top: 5px; /* Adds space between the name and stars */
+}
+
+.card-body h5 {
+    margin-bottom: 8px; /* Adjust spacing between name and stars */
+}
+
