@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fullscreen Video Carousel</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      color: white;
+      overflow: hidden; /* Prevents scrolling when fullscreen */
+    }
+
+    /* Navbar */
+    .navbar {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 100;
+      background: rgba(0, 0, 0, 0.5); /* Transparent effect */
+      padding: 10px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .navbar .logo {
+      font-size: 1.5em;
+      font-weight: bold;
+      color: white;
+    }
+
+    .navbar .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+
+    .navbar a {
+      text-decoration: none;
+      color: white;
+      font-size: 1em;
+      transition: color 0.3s;
+    }
+
+    .navbar a:hover {
+      color: #ffcc00; /* Highlight effect */
+    }
+
+    /* Fullscreen Video Section */
+    .hero {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .hero video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover; /* Ensures the video covers the entire screen */
+      z-index: 1;
+    }
+
+    .hero-content {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      z-index: 2;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: white;
+      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      margin-bottom: 30px;
+      line-height: 1.5;
+      color: white;
+      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+    }
+
+    /* Carousel Buttons */
+    .carousel button {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(0, 0, 0, 0.6);
+      color: white;
+      border: none;
+      font-size: 2rem;
+      cursor: pointer;
+      padding: 10px 20px;
+      border-radius: 50%;
+      z-index: 3;
+      outline: none;
+    }
+
+    .carousel .prev {
+      left: 20px;
+    }
+
+    .carousel .next {
+      right: 20px;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+
+      .hero p {
+        font-size: 1rem;
+      }
+
+      .carousel button {
+        font-size: 1.5rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero h1 {
+        font-size: 2rem;
+      }
+
+      .hero p {
+        font-size: 0.9rem;
+      }
+
+      .carousel button {
+        display: none; /* Hide buttons for very small screens */
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Transparent Navbar -->
+  <header class="navbar">
+    <div class="logo">systems</div>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="#">Services</a></li>
+        <li><a href="#">Industries</a></li>
+        <li><a href="#">Insights</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Careers</a></li>
+        <li><a href="#">Investors</a></li>
+        <li><a href="#" class="dropdown">PK <span>▼</span></a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero Section with Fullscreen Video -->
+  <section class="hero">
+    <video id="carousel-video" src="./stock-footage-artificial-intelligence-vs-human-work-or-ai-helping-to-people-with-job-modern-digital-three.webm" autoplay muted loop></video>
+    <div class="hero-content">
+      <h1 id="hero-title">We reimagine tomorrow</h1>
+      <p id="hero-text">Driving growth and molding the future through transformative change</p>
+      <div class="carousel">
+        <button class="prev" onclick="prevSlide()">❮</button>
+        <button class="next" onclick="nextSlide()">❯</button>
+      </div>
+    </div>
+  </section>
+  
+
+  <script>
+    const videos = [
+      {
+        src: "./stock-footage-artificial-intelligence-vs-human-work-or-ai-helping-to-people-with-job-modern-digital-three.webm",
+        title: "We reimagine tomorrow",
+        text: "Driving growth and molding the future through transformative change",
+      },
+      {
+        src: "./stock-footage-education-it-administrator-activating-modern-data-center-server-with-hologram.webm",
+        title: "Explore the beauty of nature",
+        text: "Discover breathtaking landscapes and pristine wilderness",
+      },
+      {
+        src: "https://www.w3schools.com/html/mov_bbb.mp4",
+        title: "Embrace innovation",
+        text: "Pioneering technology for a smarter future",
+      },
+      {
+        src: "https://www.w3schools.com/html/movie.mp4",
+        title: "Achieve your goals",
+        text: "Empowering businesses to reach new heights",
+      },
+    ];
+
+    let currentIndex = 0;
+
+    function updateSlide(index) {
+      const video = videos[index];
+      document.getElementById("carousel-video").src = video.src;
+      document.getElementById("hero-title").textContent = video.title;
+      document.getElementById("hero-text").textContent = video.text;
+    }
+
+    function nextSlide() {
+      currentIndex = (currentIndex + 1) % videos.length;
+      updateSlide(currentIndex);
+    }
+
+    function prevSlide() {
+      currentIndex = (currentIndex - 1 + videos.length) % videos.length;
+      updateSlide(currentIndex);
+    }
+  </script>
+</body>
+</html>

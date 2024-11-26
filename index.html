@@ -3,180 +3,191 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NEXGEN</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <link rel="stylesheet" href="css/index.css">
-    <link rel="shortcut icon" href="images/images.jpg" type="image/x-icon">
+    <title>Services Page</title>
     <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #F0F0F0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
 
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Left side text */
+        .left-side {
+            width: 50%;
+            padding-right: 50px;
+            background-color: white; /* Same color as the right side */
+            color: white;
+            background-image: url('company-logo.png'); /* Replace with your logo image URL */
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+            position: relative;
+            height: 100%;
+        }
+
+        .left-side h1 {
+            font-size: 40px;
+            font-weight: bold;
+            color: #6fb2bd;
+            margin: 10px 0;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Optional text shadow for better readability */
+        }
+
+        /* Right side services */
+        .right-side {
+            width: 50%;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            overflow-y: auto; /* Allows scrolling but hides the scrollbar */
+            max-height: 90vh; /* Limit the height */
+            padding: 20px;
+            background-color: white; /* Same color as left side */
+            color: white;
+        }
+
+        .right-side::-webkit-scrollbar {
+            display: none; /* Hide scrollbar */
+        }
+
+        .service {
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+            text-align: left;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .service h2 {
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .service p {
+            color: #666;
+            line-height: 1.5;
+            margin-bottom: 10px;
+        }
+
+        .service a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        /* Vertical line separating left and right sides */
+        .separator {
+            width: 2px;
+            background-color: #333;
+            height: 100%;
+        }
+
+        /* Line separator within right-side */
+        .line {
+            height: 2px;
+            background-color: #333;
+            margin-bottom: 20px;
+        }
+
+        /* Scroll Effect */
+        .scrollable {
+            height: 90vh;
+            overflow-y: scroll;
+            padding-right: 10px;
+        }
+
+        /* Media Queries */
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                padding: 20px;
+            }
+
+            .left-side, .right-side {
+                width: 100%;
+            }
+
+            .left-side h1 {
+                font-size: 30px;
+            }
+
+            .separator {
+                display: none;
+            }
+        }
     </style>
 </head>
 <body>
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg bg-light border-bottom">
-        <div class="container">
-            <a class="navbar-brand text-primary" href="#">NEXGEN</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <form class="d-flex mx-auto nav-search">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-primary" type="submit"><i class="fas fa-search"></i></button>
-                </form>
-                <ul class="navbar-nav ms-auto align-items-center">
-                    <li class="nav-item">
-                        <a class="nav-link" href="index.html"><i class="fas fa-home"></i> Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#"><i class="fa-solid fa-gear"></i> Services</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="about.html"><i class="fas fa-briefcase"></i> About</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#"><i class="fas fa-comments"></i> Contact</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#"><i class="fa-solid fa-user"></i> Case Studies</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            <div class="profile-icon">
-                                <img src="images/images.jpg" alt="Profile" class="rounded-circle" style="width: 30px; height: 30px;">
-                            </div>
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="#">Profile</a></li>
-                            <li><a class="dropdown-item" href="#">Settings</a></li>
-                            <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="#">Logout</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
+    <div class="container">
+        <!-- Left side text -->
+        <div class="left-side">
+            <h1>Empowering our</h1>
+            <h1>global clientele to</h1>
+            <h1>embrace modern</h1>
+            <h1>technology, rethink</h1>
+            <h1>processes, and</h1>
+            <h1>elevate experiences</h1>
         </div>
-    </nav>
 
-    <!-- Main Content -->
-    <div class="container mt-4">
-        <div class="row">
-            <!-- Left Sidebar -->
-            <div class="col-md-3">
-                <div class="profile-card">
-                    <img class="profile-img" src="images/images.jpg" alt="">
-                    <br>
-                    <br>
-                    <h6>NEXGEN</h6>
-                    <p class="desc">Building the Future, One Line at a Time | Innovate. Build. Scale.</p>
-                    <p class="location">Lahore, Pakistan</p>
-                    <div class="parent-div">
-                        <img class="img-img" src="images/images.jpg" alt="">
-                        <p>Nexgen Technologies</p>
-                    </div>
-                </div>
-                <div class="sidebar-section">
-                    <h6>Contact Info</h6>
-                    <ul class="list-unstyled">
-                        <li><a href="https://www.facebook.com/yourprofile" target="_blank" class="text-decoration-none">
-                            <i class="fa-brands fa-facebook-f"></i> Facebook
-                        </a></li>
-                        <li><a href="mailto:your-email@gmail.com" class="text-decoration-none">
-                            <i class="fa-brands fa-google"></i> Gmail
-                        </a></li>
-                        <li> <a href="https://wa.me/your-number" target="_blank" class="text-decoration-none">
-                            <i class="fa-brands fa-whatsapp"></i> WhatsApp
-                        </a></li>
-                        <li>
-                            <a href="https://www.instagram.com/yourprofile" target="_blank" class="text-decoration-none">
-                                <i class="fa-brands fa-instagram"></i> Instagram
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://www.linkedin.com/yourprofile" target="_blank" class="text-decoration-none">
-                                <i class="fa-brands fa-linkedin-in"></i> LinkedIn
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://www.github.com/yourprofile" target="_blank" class="text-decoration-none">
-                                <i class="fa-brands fa-github"></i> Github
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://www.github.com/yourprofile" target="_blank" class="text-decoration-none">
-                                <i class="fa-brands fa-x-twitter"></i> X/Twitter
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-             
-            <!-- Main Content -->
-            <div class="col-md-6">
-                <div class="main-content">
-                    <div class="parent-div2">
-                        <img src="images/images.jpg" alt="">
-                        <h6 style="margin-top: 5px; margin-left:10px; font-weight:bold;">Nexgen Technologies •</h6>
-                    </div>
-                    <h6 style="font-size: 15px;">
-                        NexGen - Empowering Your Business for the Future
-                    </h6>
-                    <p id="nexgen-text" style="font-size:13px;">
-                        At NexGen, we deliver cutting-edge solutions to scale your business. From websites and apps to SEO and maintenance, we ensure your success with innovation, reliability, and excellence. 
-                        <span id="dots">...</span>
-                        <span id="more-text" style="display:none;">
-                            Our team of experts is committed to providing tailored solutions that meet your unique needs. Let's build a better digital future together. <br> <strong>Build. Scale. Succeed with NexGen.</strong>
-                        </span>
-                    </p>
-                    <button id="read-more-btn" onclick="toggleReadMore()" style="font-size:13px; background: none; border: none; color: #858282; cursor: pointer;">Read More</button>
-                    <img class="img1" src="images/idea.png" alt="">
-                    <div class="buttons">
-                        <button style="background: none; border: none; cursor: pointer; color: #0073b1;"><i class="fa-solid fa-thumbs-up"></i> Like</button>
-                        <button style="background: none; border: none; cursor: pointer; color: #0073b1;"><i class="fa-regular fa-comments"></i> Comment</button>
-                        <button style="background: none; border: none; cursor: pointer; color: #0073b1;"><i class="fa-sharp fa-thin fa-share"></i> Share</button>
-                        <button style="background: none; border: none; cursor: pointer; color: #0073b1;"><i class="fa-regular fa-signs-post"></i> Repost</button>
-                    </div>
-                </div>
-                <br>
-                <div class="main-content">
-                    <div class="parent-div2">
-                        <img src="images/images.jpg" alt="">
-                        <h6 style="margin-top: 5px; margin-left:10px; font-weight:bold;">Nexgen Technologies •</h6>
-                    </div>
-                    <h6 style="font-size: 15px;">
-                        NexGen - Where Technology Meets Innovation
-                    </h6>
-                    <p id="nexgen-text" style="font-size:13px;">
-                        <strong>Your Vision, Our Expertise</strong> encapsulates our commitment to transforming your ideas into impactful digital solutions.
-                        <span id="Dots">...</span>
-                        <span id="More-text" style="display:none;">
-                            At NexGen, we believe that every great project begins with a unique vision. Our team of experts collaborates closely with you to understand your goals and tailor technology to meet your specific needs. From cutting-edge websites and applications to seamless SEO and maintenance, we bring innovation, precision, and reliability to every step of the journey. With NexGen by your side, your vision becomes a reality powered by our expertise. Together, let’s shape a smarter, more successful future for your business
-                        </span>
-                    </p>
-                    <button id="Read-more-btn" onclick="ToggleReadMore()" style="font-size:13px; background: none; border: none; color: #858282; cursor: pointer;">Read More</button>
-                    <img class="img1" src="images/paper_plane12.1.jpg" alt="">
-                    <div class="buttons">
-                        <button style="background: none; border: none; cursor: pointer; color: #0073b1;"><i class="fa-solid fa-thumbs-up"></i> Like</button>
-                        <button style="background: none; border: none; cursor: pointer; color: #0073b1;"><i class="fa-regular fa-comments"></i> Comment</button>
-                        <button style="background: none; border: none; cursor: pointer; color: #0073b1;"><i class="fa-sharp fa-thin fa-share"></i> Share</button>
-                        <button style="background: none; border: none; cursor: pointer; color: #0073b1;"><i class="fa-regular fa-signs-post"></i> Repost</button>
-                    </div>
-                </div>
-            </div>
+        <!-- Separator line between left and right -->
+        <div class="separator"></div>
 
-            <!-- Right Sidebar -->
-            <div class="col-md-3">
-                <div class="sidebar-section">
-                    <h6>See Who's Hiring</h6>
-                    <p>View recommended jobs for you.</p>
-                </div>
+        <!-- Right side services -->
+        <div class="right-side scrollable">
+            <div class="service">
+                <h2>Digital</h2>
+                <p>We offer core insights-driven digital transformation capabilities, modernize key systems to accelerate innovation, and provide a design-led, unified, and personalized experience.</p>
+                <a href="#">LEARN MORE →</a>
+            </div>
+            <div class="line"></div>
+            <div class="service">
+                <h2>Data & AI</h2>
+                <p>We enable enterprises to transform data into a business advantage by tapping into the capabilities of ML, advanced analytics, generative AI, and connected intelligence.</p>
+                <a href="#">LEARN MORE →</a>
+            </div>
+            <div class="line"></div>
+            <div class="service">
+                <h2>Cloud</h2>
+                <p>We help enterprises scale and adapt to evolving needs within a secure hybrid or pure cloud environment by leveraging end-to-end cloud capabilities.</p>
+                <a href="#">LEARN MORE →</a>
             </div>
         </div>
     </div>
-    <br>
-    <br>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="js/index.js"></script>
+
+    <script>
+        window.addEventListener('scroll', function() {
+            const scrollPosition = window.scrollY;
+            const rightSide = document.querySelector('.right-side');
+            if (scrollPosition > 100) {
+                rightSide.style.transform = 'translateY(-50px)';
+                rightSide.style.transition = 'transform 0.3s ease-in-out';
+            } else {
+                rightSide.style.transform = 'translateY(0)';
+            }
+        });
+    </script>
 </body>
 </html>
