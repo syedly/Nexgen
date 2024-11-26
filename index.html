@@ -1,193 +1,319 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Services Page</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #F0F0F0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            overflow: hidden;
-        }
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nexgen Solutions</title>
+    <link rel="stylesheet" href="css/index.css" />
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 50px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            width: 100%;
-            background-color: #fff;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-        }
+    <!-- FontAwesome CDN Link -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+  </head>
+  <body>
+    <!-- Invisible Navbar on top of carousel -->
+    <header class="navbar">
+      <div class="logo">Nexgen Solutions</div>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
 
-        /* Left side text */
-        .left-side {
-            width: 50%;
-            padding-right: 50px;
-            background-color: white; /* Same color as the right side */
-            color: white;
-            background-image: url('company-logo.png'); /* Replace with your logo image URL */
-            background-size: contain;
-            background-position: center;
-            background-repeat: no-repeat;
-            position: relative;
-            height: 100%;
-        }
+    <!-- Fullscreen Carousel -->
+    <section id="home" class="carousel">
+      <video
+        id="carousel-video"
+        src="images/video2.webm"
+        autoplay
+        muted
+        loop
+      ></video>
+      <div class="carousel-content">
+        <h1>Welcome to Our Website</h1>
+        <p>Discover our innovative solutions</p>
+      </div>
+    </section>
 
-        .left-side h1 {
-            font-size: 40px;
-            font-weight: bold;
-            color: #6fb2bd;
-            margin: 10px 0;
-            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Optional text shadow for better readability */
-        }
+    <!-- Services Section -->
+    <section id="services" class="services">
+      <!-- Left Side: Text -->
+      <div class="left-side">
+        <h2>Our Services</h2>
+        <p>
+          At Nexgen Solutions, we offer a wide range of services designed to
+          help businesses succeed in the digital world. Our team of experts is
+          dedicated to providing innovative solutions that meet the unique needs
+          of our clients.
+        </p>
+        <p>
+          From web development to digital marketing, we have the experience and
+          expertise to take your business to the next level.
+        </p>
+      </div>
 
-        /* Right side services */
-        .right-side {
-            width: 50%;
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-            overflow-y: auto; /* Allows scrolling but hides the scrollbar */
-            max-height: 90vh; /* Limit the height */
-            padding: 20px;
-            background-color: white; /* Same color as left side */
-            color: white;
-        }
+      <!-- Divider -->
+      <div class="divider"></div>
 
-        .right-side::-webkit-scrollbar {
-            display: none; /* Hide scrollbar */
-        }
-
-        .service {
-            background-color: #fff;
-            border-radius: 10px;
-            padding: 20px;
-            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
-            text-align: left;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-
-        .service h2 {
-            font-size: 24px;
-            font-weight: bold;
-            color: #333;
-            margin-bottom: 10px;
-        }
-
-        .service p {
-            color: #666;
-            line-height: 1.5;
-            margin-bottom: 10px;
-        }
-
-        .service a {
-            color: #007bff;
-            text-decoration: none;
-        }
-
-        /* Vertical line separating left and right sides */
-        .separator {
-            width: 2px;
-            background-color: #333;
-            height: 100%;
-        }
-
-        /* Line separator within right-side */
-        .line {
-            height: 2px;
-            background-color: #333;
-            margin-bottom: 20px;
-        }
-
-        /* Scroll Effect */
-        .scrollable {
-            height: 90vh;
-            overflow-y: scroll;
-            padding-right: 10px;
-        }
-
-        /* Media Queries */
-        @media (max-width: 768px) {
-            .container {
-                flex-direction: column;
-                padding: 20px;
-            }
-
-            .left-side, .right-side {
-                width: 100%;
-            }
-
-            .left-side h1 {
-                font-size: 30px;
-            }
-
-            .separator {
-                display: none;
-            }
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <!-- Left side text -->
-        <div class="left-side">
-            <h1>Empowering our</h1>
-            <h1>global clientele to</h1>
-            <h1>embrace modern</h1>
-            <h1>technology, rethink</h1>
-            <h1>processes, and</h1>
-            <h1>elevate experiences</h1>
+      <!-- Right Side: Scrollable Service Cards -->
+      <div class="right-side">
+        <div class="service-card">
+          <h3>Web Development</h3>
+          <p>
+            We build custom websites and applications tailored to your business
+            goals, ensuring a seamless user experience.
+          </p>
         </div>
 
-        <!-- Separator line between left and right -->
-        <div class="separator"></div>
+        <div class="service-card">
+          <h3>Mobile App Development</h3>
+          <p>
+            Our team creates innovative mobile apps that are both user-friendly
+            and functionally robust, designed to meet the needs of modern users.
+          </p>
+        </div>
 
-        <!-- Right side services -->
-        <div class="right-side scrollable">
-            <div class="service">
-                <h2>Digital</h2>
-                <p>We offer core insights-driven digital transformation capabilities, modernize key systems to accelerate innovation, and provide a design-led, unified, and personalized experience.</p>
-                <a href="#">LEARN MORE →</a>
-            </div>
-            <div class="line"></div>
-            <div class="service">
-                <h2>Data & AI</h2>
-                <p>We enable enterprises to transform data into a business advantage by tapping into the capabilities of ML, advanced analytics, generative AI, and connected intelligence.</p>
-                <a href="#">LEARN MORE →</a>
-            </div>
-            <div class="line"></div>
-            <div class="service">
-                <h2>Cloud</h2>
-                <p>We help enterprises scale and adapt to evolving needs within a secure hybrid or pure cloud environment by leveraging end-to-end cloud capabilities.</p>
-                <a href="#">LEARN MORE →</a>
+        <div class="service-card">
+          <h3>Digital Marketing</h3>
+          <p>
+            We help businesses grow by leveraging the power of digital
+            marketing, including SEO, PPC, social media marketing, and content
+            creation.
+          </p>
+        </div>
+
+        <div class="service-card">
+          <h3>Consulting</h3>
+          <p>
+            Our experts provide tailored consulting services to help businesses
+            strategize, plan, and execute successful digital transformations.
+          </p>
+        </div>
+
+        <div class="service-card">
+          <h3>E-commerce Solutions</h3>
+          <p>
+            We offer end-to-end e-commerce solutions, including platform
+            integration, payment gateway setup, and product management systems.
+          </p>
+        </div>
+
+        <div class="service-card">
+          <h3>Cloud Solutions</h3>
+          <p>
+            Our cloud services help businesses improve scalability, security,
+            and efficiency with custom cloud solutions and data management.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+      <div class="about-content">
+        <h2>About Us</h2>
+        <p>
+          At Nexgen Solutions, we are committed to providing top-notch
+          technology services that help businesses and organizations excel in
+          their digital transformation journey. Our team of passionate experts
+          brings extensive industry experience and a deep understanding of
+          emerging technologies to deliver innovative solutions that meet our
+          clients' needs. We pride ourselves on being customer-centric and value
+          long-lasting partnerships.
+        </p>
+        <p>
+          Whether you're looking for web development, mobile applications, or
+          digital marketing services, we are here to help you achieve your
+          business goals with cutting-edge solutions and unparalleled expertise.
+        </p>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+      <!-- Left Side: Embedded Google Map -->
+      <div class="contact-left">
+        <iframe
+          src="https://www.google.com/maps/embed/v1/place?q=New+York+City&key=YOUR_GOOGLE_MAPS_API_KEY"
+          width="600"
+          height="450"
+          style="border: 0"
+          allowfullscreen=""
+          loading="lazy"
+        >
+        </iframe>
+      </div>
+
+      <!-- Right Side: Contact Form -->
+      <div class="contact-right">
+        <h2>Contact Us</h2>
+        <form action="#" method="POST">
+          <label for="name">Full Name:</label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            required
+            placeholder="Enter your name"
+          />
+
+          <label for="email">Email Address:</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            required
+            placeholder="Enter your email"
+          />
+
+          <label for="message">Message:</label>
+          <textarea
+            id="message"
+            name="message"
+            rows="4"
+            required
+            placeholder="Enter your message"
+          ></textarea>
+
+          <button type="submit">Submit</button>
+
+          <!-- Social Icons Below Submit Button -->
+          <div class="social-icons">
+            <a href="https://www.facebook.com" target="_blank" class="facebook"
+              ><i class="fab fa-facebook"></i
+            ></a>
+            <a
+              href="https://www.instagram.com"
+              target="_blank"
+              class="instagram"
+              ><i class="fab fa-instagram"></i
+            ></a>
+            <a href="https://www.linkedin.com" target="_blank" class="linkedin"
+              ><i class="fab fa-linkedin"></i
+            ></a>
+            <a href="https://www.google.com" target="_blank" class="google"
+              ><i class="fab fa-google"></i
+            ></a>
+            <a href="https://github.com" target="_blank" class="github"
+              ><i class="fab fa-github"></i
+            ></a>
+            <a href="https://twitter.com" target="_blank" class="twitter"
+              ><i class="fab fa-twitter"></i
+            ></a>
+            <a href="https://wa.me" target="_blank" class="whatsapp"
+              ><i class="fab fa-whatsapp"></i
+            ></a>
+          </div>
+        </form>
+      </div>
+    </section>
+    <!-- Testimonial Section -->
+    <section id="testimonials" class="testimonials">
+      <div class="testimonial-container">
+        <div class="testimonial">
+          <div class="testimonial-image">
+            <img src="images/img1.jpeg" alt="Client 1" />
+          </div>
+          <div class="testimonial-content">
+            <p>
+              "Nexgen Solutions transformed our website into a powerful tool for
+              our business. Highly recommend their services!"
+            </p>
+            <p><strong>John Doe</strong> - CEO, Company ABC</p>
+          </div>
+        </div>
+
+        <div class="testimonial">
+          <div class="testimonial-image">
+            <img src="images/testimonial2.jpg" alt="Client 2" />
+          </div>
+          <div class="testimonial-content">
+            <p>
+              "Their team understood our needs and delivered exceptional results
+              on time. The collaboration was seamless."
+            </p>
+            <p><strong>Jane Smith</strong> - Marketing Director, XYZ Corp</p>
+          </div>
+        </div>
+
+        <div class="testimonial">
+          <div class="testimonial-image">
+            <img src="images/testimonial3.jpg" alt="Client 3" />
+          </div>
+          <div class="testimonial-content">
+            <p>
+              "We saw an immediate improvement in customer engagement after
+              working with Nexgen Solutions. Truly impressed!"
+            </p>
+            <p><strong>Michael Lee</strong> - Founder, Startup Co.</p>
+          </div>
+        </div>
+      </div>
+      <button id="testimonial-btn" class="testimonial-btn">
+        Next Testimonial
+      </button>
+    </section>
+    <!-- show case -->
+    <section class="projects-counter" id="projects-counter">
+        <div class="container">
+            <h1 class="section-title">Our Achievements</h1>
+            <div class="projects-row">
+                <div class="project-item">
+                    <h2 id="web-count">0</h2>
+                    <p>Web Development</p>
+                </div>
+                <div class="project-item">
+                    <h2 id="app-count">0</h2>
+                    <p>App Development</p>
+                </div>
+                <div class="project-item">
+                    <h2 id="business-count">0</h2>
+                    <p>Business</p>
+                </div>
             </div>
         </div>
-    </div>
+    </section>
+         <!-- video -->
+         <section id="home" class="carousel">
+            <video
+            id="carousel-video"
+            src="images/video2.webm"
+            autoplay
+            muted
+            loop
+          ></video>
+          <div class="carousel-content">
+            <h1>Your next starts right here</h1>
+            <p>Discover our innovative solutions</p>
+          </div>
+          </section>
+    <!-- how can we help you -->
+     <section class="how-can-we-help-you" id="how-can-we-help-you">
+        <div>
+            <h1>
+                How can we help you
+            </h1>
+            <h6>
+                Are you ready to push boundaries and explore new frontiers of innovation?
+            </h6>
+            <button>
+                <a href="#contact">
+                    lets work together
+                </a>
+            </button>
+        </div>
+     </section>
+    <!-- Footer Section -->
+    <footer class="footer">
+      <p>&copy; 2024 Nexgen Solutions. All rights reserved.</p>
+    </footer>
 
-    <script>
-        window.addEventListener('scroll', function() {
-            const scrollPosition = window.scrollY;
-            const rightSide = document.querySelector('.right-side');
-            if (scrollPosition > 100) {
-                rightSide.style.transform = 'translateY(-50px)';
-                rightSide.style.transition = 'transform 0.3s ease-in-out';
-            } else {
-                rightSide.style.transform = 'translateY(0)';
-            }
-        });
-    </script>
-</body>
+    <script src="js/index.js"></script>
+  </body>
 </html>

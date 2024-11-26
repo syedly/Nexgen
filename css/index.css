@@ -1,0 +1,570 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: Arial, sans-serif;
+    color: white;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+    margin: 0;
+    padding: 0;
+    background-color: #F0F0F0;
+  }
+
+  /* Invisible Navbar */
+  .navbar {
+    position: absolute; /* Position it on top of other elements */
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 15px;
+    z-index: 10; /* Ensure the navbar is on top of the carousel */
+    background: rgba(0, 0, 0, 0); /* Transparent background */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.5); /* Subtle border */
+  }
+
+  .navbar .logo {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: white;
+  }
+
+  .navbar .nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+  }
+
+  .navbar a {
+    text-decoration: none;
+    color: white;
+    font-size: 1em;
+    transition: color 0.3s;
+  }
+
+  .navbar a:hover {
+    color: #ffcc00; /* Highlight on hover */
+  }
+
+  /* Fullscreen Carousel */
+  .carousel {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+  }
+
+  .carousel video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .carousel-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 5; /* Ensure it appears on top of the video */
+  }
+
+  .carousel-content h1 {
+    font-size: 3rem;
+    color: white;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+  }
+
+  .carousel-content p {
+    font-size: 1.5rem;
+    color: white;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+  }
+
+  /* Navbar Buttons on Top of Carousel */
+  .carousel button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    padding: 10px 20px;
+    border-radius: 50%;
+    z-index: 6; /* Ensure it is on top */
+    outline: none;
+  }
+
+  .carousel .prev {
+    left: 20px;
+  }
+
+  .carousel .next {
+    right: 20px;
+  }
+  /* Services Section */
+.services {
+    display: flex;
+    justify-content: space-between;
+    padding: 50px;
+    background-color: #f4f4f4;
+  }
+  
+  /* Left Side (Text) */
+  .services .left-side {
+    width: 40%;
+    padding: 20px;
+    font-size: 1.2rem;
+    color: #333;
+  }
+  
+  .services .left-side h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+  
+  .services .left-side p {
+    line-height: 1.8;
+  }
+  
+  /* Divider */
+  .services .divider {
+    border-left: 2px solid #ccc;
+    height: 100%;
+  }
+  
+  /* Right Side (Scrollable Service Cards) */
+  .services .right-side {
+    width: 55%;
+    padding: 20px;
+    overflow-y: scroll;
+    max-height: 500px; /* Adjust based on your needs */
+  }
+  
+  .service-card {
+    background: white;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .service-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+  }
+  
+  .service-card p {
+    font-size: 1rem;
+    color: #666;
+  }
+ /* About Section */
+.about {
+    padding: 50px;
+    background-color: #000; /* Black background */
+    color: #fff; /* White text color */
+  }
+  
+  .about .about-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  
+  .about h2 {
+    font-size: 2.5rem;
+    color: #fff; /* White text color for the title */
+    margin-bottom: 20px;
+  }
+  
+  .about p {
+    font-size: 1.1rem;
+    color: #fff; /* White text color for paragraphs */
+    line-height: 1.8;
+    margin-bottom: 20px;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .about h2 {
+      font-size: 2rem;
+    }
+  
+    .about p {
+      font-size: 1rem;
+    }
+  }
+  /* Contact Section */
+.contact {
+  display: flex;
+  justify-content: space-between;
+  padding: 50px;
+  background-color: #f4f4f4; /* Adjust background color */
+}
+
+.contact-left {
+  flex: 1;
+  max-width: 50%;
+}
+
+.contact-left img {
+  width: 100%;
+  height: auto;
+  object-fit: cover; /* Ensures image covers the left side */
+}
+
+.contact-right {
+  flex: 1;
+  max-width: 50%;
+  padding-left: 20px;
+}
+
+.contact-right h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.contact-right form {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-right label {
+  font-size: 1rem;
+  margin-bottom: 5px;
+}
+
+.contact-right input,
+.contact-right textarea {
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.contact-right button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.contact-right button:hover {
+  background-color: #0056b3;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  .social-icons a {
+    margin: 0 10px;
+    font-size: 30px;
+    color: #333;
+    transition: color 0.3s ease;
+  }
+  
+  .social-icons a:hover {
+    color: #0073e6; /* Default hover color */
+  }
+  
+  .social-icons a.facebook:hover {
+    color: #3b5998;
+  }
+  
+  .social-icons a.instagram:hover {
+    color: #e1306c;
+  }
+  
+  .social-icons a.linkedin:hover {
+    color: #0077b5;
+  }
+  
+  .social-icons a.google:hover {
+    color: #db4437;
+  }
+  
+  .social-icons a.github:hover {
+    color: #333;
+  }
+  
+  .social-icons a.twitter:hover {
+    color: #1da1f2;
+  }
+  
+  .social-icons a.whatsapp:hover {
+    color: #25d366;
+  }
+
+.how-can-we-help-you {
+    justify-content: center;
+    display: flex;
+}
+
+.how-can-we-help-you {
+    background-color: #f9f9f9; /* Light background for contrast */
+    padding: 50px 20px; /* Padding for spacing */
+    text-align: center; /* Center-align the content */
+}
+
+.how-can-we-help-you .help-content {
+    max-width: 800px; /* Limit the width of the content */
+    margin: 0 auto; /* Center the content horizontally */
+}
+
+.how-can-we-help-you h1 {
+    font-size: 2.5rem; /* Scalable font size */
+    color: #333; /* Softer black for better aesthetics */
+    font-family: Arial, Helvetica, sans-serif;
+    margin-top: 10px;
+    margin-bottom: 20px; /* Space between heading and subheading */
+}
+
+.how-can-we-help-you h6 {
+    font-size: 1.2rem; /* Smaller, responsive font size */
+    color: #555; /* Softer black for subheading */
+    font-family: Arial, Helvetica, sans-serif;
+    margin-bottom: 30px; /* Space below subheading */
+}
+
+.how-can-we-help-you button {
+    background-color: #007bff; /* Bootstrap primary blue */
+    color: #fff;
+    border: none;
+    padding: 12px 20px;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.how-can-we-help-you button a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.how-can-we-help-you button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+@media (max-width: 768px) {
+    .how-can-we-help-you h1 {
+        font-size: 2rem; /* Smaller font size for tablets and phones */
+    }
+
+    .how-can-we-help-you h6 {
+        font-size: 1rem; /* Adjust for readability */
+    }
+
+    .how-can-we-help-you button {
+        padding: 10px 15px; /* Adjust padding for smaller screens */
+        font-size: 0.9rem;
+    }
+}
+
+  /* Testimonial Section */
+.testimonials {
+    background-color: black;
+    color: white;
+    padding: 50px 0;
+    text-align: center;
+  }
+  
+  /* Container for the testimonials */
+  .testimonial-container {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  
+  /* Each testimonial */
+  .testimonial {
+    display: none; /* Hide all testimonials by default */
+    margin-bottom: 20px;
+  }
+  
+  /* Show the active testimonial */
+  .testimonial.active {
+    display: block;
+  }
+  
+  /* Circular image */
+  .testimonial-image {
+    width: 120px;
+    height: 120px;
+    margin: 0 auto;
+    overflow: hidden;
+    border-radius: 50%;
+    border: 4px solid #fff;
+    margin-bottom: 20px;
+  }
+  
+  .testimonial-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  /* Rounded container under the image */
+  .testimonial-content {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+  }
+  
+  .testimonial-content p {
+    margin: 0;
+  }
+  
+  /* Button to toggle testimonials */
+  .testimonial-btn {
+    background-color: #fff;
+    color: black;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 25px;
+    margin-top: 20px;
+  }
+  
+  .testimonial-btn:hover {
+    background-color: #444;
+    color: white;
+  }
+  
+  
+/* Footer Section */
+.footer {
+    background-color: black; /* Black background */
+    color: white; /* White text */
+    text-align: center; /* Center the text */
+    padding: 20px 0; /* Add some padding for spacing */
+    position: relative;
+    bottom: 0;
+    width: 100%;
+  }
+  
+  .footer p {
+    margin: 0; /* Remove default margin */
+    font-size: 16px; /* Set a font size for the text */
+  }
+  
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .contact {
+    flex-direction: column;
+  }
+
+  .contact-left,
+  .contact-right {
+    max-width: 100%;
+  }
+
+  .contact-left img {
+    width: 100%;
+    height: auto;
+  }
+
+  .contact-right {
+    padding-left: 0;
+    margin-top: 20px;
+  }
+}
+
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .about h2 {
+      font-size: 2rem;
+    }
+  
+    .about p {
+      font-size: 1rem;
+    }
+  }
+  
+  
+
+  /* Responsive design */
+  @media (max-width: 768px) {
+    .carousel-content h1 {
+      font-size: 2rem;
+    }
+
+    .carousel-content p {
+      font-size: 1rem;
+    }
+
+    .carousel button {
+      font-size: 1.5rem;
+    }
+  }
+
+  .projects-counter {
+    background-color: #f8f9fa;
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.projects-counter .section-title {
+    font-size: 36px;
+    color: #333;
+    margin-bottom: 30px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.projects-row {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.project-item {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 30%;
+    max-width: 300px;
+    text-align: center;
+}
+
+.project-item h2 {
+    font-size: 48px;
+    color: #007bff;
+    margin: 10px 0;
+}
+
+.project-item p {
+    font-size: 18px;
+    color: #555;
+}
+
+@media (max-width: 768px) {
+    .project-item {
+        width: 100%;
+    }
+}
