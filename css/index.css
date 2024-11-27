@@ -12,44 +12,104 @@
     padding: 0;
     background-color: #F0F0F0;
   }
+/* Navbar */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 15px;
+  z-index: 10;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.8); /* Transparent background */
+  color: #4CAF50;
+}
 
-  /* Invisible Navbar */
-  .navbar {
-    position: absolute; /* Position it on top of other elements */
-    top: 0;
-    left: 0;
-    width: 100%;
-    padding: 15px;
-    z-index: 10; /* Ensure the navbar is on top of the carousel */
-    background: rgba(0, 0, 0, 0); /* Transparent background */
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 2px solid rgba(255, 255, 255, 0.5); /* Subtle border */
+.navbar .logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: white;
+  font-size: 1em;
+  transition: color 0.3s;
+}
+
+.nav-links a:hover {
+  color: #66b3ff;
+}
+
+.menu-btn {
+  display: none;
+  font-size: 1.5rem;
+  color: white;
+  cursor: pointer;
+}
+
+/* Sidebar */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: -100%;
+  width: 250px;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8); /* Transparent background */
+  color: white;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 20px;
+  transition: left 0.3s;
+  z-index: 1000;
+}
+
+.sidebar.active {
+  left: 0;
+}
+
+.sidebar .close-btn {
+  font-size: 1.5rem;
+  cursor: pointer;
+  text-align: right;
+}
+
+.sidebar .sidebar-links {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar .sidebar-links li {
+  margin-bottom: 10px;
+}
+
+.sidebar .sidebar-links a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.2rem;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
   }
 
-  .navbar .logo {
-    font-size: 1.5em;
-    font-weight: bold;
-    color: white;
+  .menu-btn {
+    display: block;
   }
+}
 
-  .navbar .nav-links {
-    list-style: none;
-    display: flex;
-    gap: 20px;
-  }
-
-  .navbar a {
-    text-decoration: none;
-    color: white;
-    font-size: 1em;
-    transition: color 0.3s;
-  }
-
-  .navbar a:hover {
-    color: #ffcc00; /* Highlight on hover */
-  }
 
   /* Fullscreen Carousel */
   .carousel {
@@ -113,120 +173,230 @@
     right: 20px;
   }
   /* Services Section */
+/* General Services Section Styling */
 .services {
-    display: flex;
-    justify-content: space-between;
-    padding: 50px;
-    background-color: #f4f4f4;
-  }
-  
-  /* Left Side (Text) */
-  .services .left-side {
-    width: 40%;
-    padding: 20px;
-    font-size: 1.2rem;
-    color: #333;
-  }
-  
-  .services .left-side h2 {
-    font-size: 2rem;
-    margin-bottom: 20px;
-  }
-  
-  .services .left-side p {
-    line-height: 1.8;
-  }
-  
-  /* Divider */
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 50px 20px;
+  background-color: #f4f4f4;
+}
+
+/* Left Side (Text) */
+.services .left-side {
+  flex: 1 1 40%;
+  font-size: 1.2rem;
+  color: #333;
+}
+
+.services .left-side h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #333333;
+}
+
+.services .left-side p {
+  line-height: 1.8;
+  margin-bottom: 15px;
+  color: #000000;
+}
+
+/* Divider */
+.services .divider {
+  border-left: 2px solid #ccc;
+  height: auto;
+  display: block;
+}
+
+@media (max-width: 768px) {
   .services .divider {
-    border-left: 2px solid #ccc;
-    height: 100%;
+    display: none;
   }
-  
-  /* Right Side (Scrollable Service Cards) */
-  .services .right-side {
-    width: 55%;
-    padding: 20px;
-    overflow-y: scroll;
-    max-height: 500px; /* Adjust based on your needs */
-  }
-  
-  .service-card {
-    background: white;
-    padding: 20px;
-    margin-bottom: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
-  
-  .service-card h3 {
-    font-size: 1.5rem;
-    margin-bottom: 10px;
-  }
-  
-  .service-card p {
-    font-size: 1rem;
-    color: #666;
-  }
- /* About Section */
-.about {
-    padding: 50px;
-    background-color: #000; /* Black background */
-    color: #fff; /* White text color */
-  }
-  
-  .about .about-content {
-    max-width: 800px;
-    margin: 0 auto;
+}
+
+/* Right Side (Scrollable Service Cards) */
+.services .right-side {
+  flex: 1 1 55%;
+  max-height: 500px; /* Scrollable on larger screens */
+  overflow-y: auto;
+}
+
+.service-card {
+  background: white;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.service-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  color: #4CAF50;
+}
+
+.service-card p {
+  font-size: 1rem;
+  color: #666;
+  line-height: 1.6;
+}
+
+/* Responsive Styles */
+@media (max-width: 1024px) {
+  .services .left-side {
+    flex: 1 1 100%;
     text-align: center;
   }
-  
+
+  .services .right-side {
+    flex: 1 1 100%;
+  }
+
+  .service-card {
+    margin-bottom: 15px;
+  }
+}
+
+@media (max-width: 768px) {
+  .services {
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  .services .left-side {
+    margin-bottom: 20px;
+  }
+
+  .service-card {
+    padding: 15px;
+  }
+}
+/* About Section */
+.about {
+  padding: 60px 20px;
+  background-color: #000; /* Black background */
+  color: #fff; /* White text color */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.about .about-content {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.about h2 {
+  font-size: 2.5rem;
+  color: #333333;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.about p {
+  font-size: 1.2rem;
+  color: #ddd; /* Softer white for readability */
+  line-height: 1.8;
+  margin-bottom: 20px;
+}
+
+/* Learn More Button */
+.learn-more-btn {
+  padding: 12px 30px;
+  font-size: 1rem;
+  color: #4CAF50;
+  background-color: #fff; /* White button */
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.learn-more-btn:hover {
+  background-color: #ffcc00; /* Highlight color */
+  color: #000;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
   .about h2 {
-    font-size: 2.5rem;
-    color: #fff; /* White text color for the title */
-    margin-bottom: 20px;
+    font-size: 2rem;
   }
-  
+
   .about p {
-    font-size: 1.1rem;
-    color: #fff; /* White text color for paragraphs */
-    line-height: 1.8;
-    margin-bottom: 20px;
+    font-size: 1rem;
   }
-  
-  /* Responsive Design */
-  @media (max-width: 768px) {
-    .about h2 {
-      font-size: 2rem;
-    }
-  
-    .about p {
-      font-size: 1rem;
-    }
+
+  .learn-more-btn {
+    font-size: 0.9rem;
+    padding: 10px 25px;
   }
-  /* Contact Section */
+}
+
+@media (max-width: 768px) {
+  .about {
+    padding: 40px 10px;
+  }
+
+  .about h2 {
+    font-size: 1.8rem;
+  }
+
+  .about p {
+    font-size: 0.95rem;
+  }
+
+  .learn-more-btn {
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .about h2 {
+    font-size: 1.5rem;
+  }
+
+  .about p {
+    font-size: 0.9rem;
+  }
+
+  .learn-more-btn {
+    font-size: 0.8rem;
+    padding: 8px 20px;
+  }
+}
+/* Contact Section */
 .contact {
   display: flex;
-  justify-content: space-between;
+  flex-wrap: wrap;
   padding: 50px;
-  background-color: #f4f4f4; /* Adjust background color */
+  background-color: #f4f4f4;
+  gap: 20px;
 }
 
+/* Left Side (Google Map) */
 .contact-left {
   flex: 1;
-  max-width: 50%;
+  min-width: 300px;
+  height: 400px; /* Adjust for height consistency */
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.contact-left img {
-  width: 100%;
-  height: auto;
-  object-fit: cover; /* Ensures image covers the left side */
-}
-
+/* Right Side (Form) */
 .contact-right {
   flex: 1;
-  max-width: 50%;
-  padding-left: 20px;
+  max-width: 500px;
 }
 
 .contact-right h2 {
@@ -238,146 +408,98 @@
 .contact-right form {
   display: flex;
   flex-direction: column;
+  gap: 15px;
 }
 
 .contact-right label {
   font-size: 1rem;
   margin-bottom: 5px;
+  color: #4CAF50;
 }
 
 .contact-right input,
 .contact-right textarea {
-  padding: 10px;
-  margin-bottom: 15px;
+  padding: 12px;
   border: 1px solid #ccc;
   border-radius: 5px;
+  font-size: 1rem;
 }
 
 .contact-right button {
-  padding: 10px 20px;
-  background-color: #007bff;
+  padding: 12px 20px;
+  background-color: #4CAF50;
   color: white;
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  transition: all 0.3s ease;
 }
 
 .contact-right button:hover {
   background-color: #0056b3;
 }
 
+/* Social Icons */
 .social-icons {
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
-  }
-  
-  .social-icons a {
-    margin: 0 10px;
-    font-size: 30px;
-    color: #333;
-    transition: color 0.3s ease;
-  }
-  
-  .social-icons a:hover {
-    color: #0073e6; /* Default hover color */
-  }
-  
-  .social-icons a.facebook:hover {
-    color: #3b5998;
-  }
-  
-  .social-icons a.instagram:hover {
-    color: #e1306c;
-  }
-  
-  .social-icons a.linkedin:hover {
-    color: #0077b5;
-  }
-  
-  .social-icons a.google:hover {
-    color: #db4437;
-  }
-  
-  .social-icons a.github:hover {
-    color: #333;
-  }
-  
-  .social-icons a.twitter:hover {
-    color: #1da1f2;
-  }
-  
-  .social-icons a.whatsapp:hover {
-    color: #25d366;
-  }
-
-.how-can-we-help-you {
-    justify-content: center;
-    display: flex;
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  gap: 10px;
 }
 
-.how-can-we-help-you {
-    background-color: #f9f9f9; /* Light background for contrast */
-    padding: 50px 20px; /* Padding for spacing */
-    text-align: center; /* Center-align the content */
+.social-icons a {
+  margin: 0 10px;
+  font-size: 30px;
+  color: #333;
+  transition: color 0.3s ease;
 }
 
-.how-can-we-help-you .help-content {
-    max-width: 800px; /* Limit the width of the content */
-    margin: 0 auto; /* Center the content horizontally */
+.social-icons a.facebook:hover {
+  color: #3b5998;
 }
 
-.how-can-we-help-you h1 {
-    font-size: 2.5rem; /* Scalable font size */
-    color: #333; /* Softer black for better aesthetics */
-    font-family: Arial, Helvetica, sans-serif;
-    margin-top: 10px;
-    margin-bottom: 20px; /* Space between heading and subheading */
+.social-icons a.instagram:hover {
+  color: #e1306c;
 }
 
-.how-can-we-help-you h6 {
-    font-size: 1.2rem; /* Smaller, responsive font size */
-    color: #555; /* Softer black for subheading */
-    font-family: Arial, Helvetica, sans-serif;
-    margin-bottom: 30px; /* Space below subheading */
+.social-icons a.linkedin:hover {
+  color: #0077b5;
 }
 
-.how-can-we-help-you button {
-    background-color: #007bff; /* Bootstrap primary blue */
-    color: #fff;
-    border: none;
-    padding: 12px 20px;
-    font-size: 1rem;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+.social-icons a.google:hover {
+  color: #db4437;
 }
 
-.how-can-we-help-you button a {
-    color: #fff;
-    text-decoration: none;
-    font-weight: bold;
+.social-icons a.github:hover {
+  color: #333;
 }
 
-.how-can-we-help-you button:hover {
-    background-color: #0056b3; /* Darker blue on hover */
+.social-icons a.twitter:hover {
+  color: #1da1f2;
 }
 
+.social-icons a.whatsapp:hover {
+  color: #25d366;
+}
+
+
+/* Responsive Design */
 @media (max-width: 768px) {
-    .how-can-we-help-you h1 {
-        font-size: 2rem; /* Smaller font size for tablets and phones */
-    }
+  .contact {
+    flex-direction: column;
+    align-items: center;
+  }
 
-    .how-can-we-help-you h6 {
-        font-size: 1rem; /* Adjust for readability */
-    }
+  .contact-left,
+  .contact-right {
+    width: 100%;
+    max-width: 600px;
+  }
 
-    .how-can-we-help-you button {
-        padding: 10px 15px; /* Adjust padding for smaller screens */
-        font-size: 0.9rem;
-    }
+  .contact-left {
+    height: 300px;
+  }
 }
-
   /* Testimonial Section */
 .testimonials {
     background-color: black;
@@ -438,8 +560,8 @@
   
   /* Button to toggle testimonials */
   .testimonial-btn {
-    background-color: #fff;
-    color: black;
+    background-color: #4CAF50;
+    color: white;
     border: none;
     padding: 10px 20px;
     font-size: 16px;

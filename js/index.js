@@ -53,3 +53,17 @@ window.addEventListener("scroll", () => {
         animateCounter("business-count", 110);
     }
 });
+
+
+// Sidebar Toggle
+const openSidebar = document.getElementById('open-sidebar');
+const closeSidebar = document.getElementById('close-sidebar');
+const sidebar = document.getElementById('sidebar');
+
+openSidebar.addEventListener('click', () => {
+  sidebar.classList.add('active');
+});
+
+closeSidebar.addEventListener('click', () => {
+  sidebar.classList.remove('active');
+});
