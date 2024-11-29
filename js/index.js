@@ -55,15 +55,15 @@ window.addEventListener("scroll", () => {
 });
 
 
-// Sidebar Toggle
-const openSidebar = document.getElementById('open-sidebar');
-const closeSidebar = document.getElementById('close-sidebar');
-const sidebar = document.getElementById('sidebar');
+// JavaScript to handle sidebar toggle
+const menuIcon = document.querySelector('.menu-icon');
+const sidebar = document.querySelector('.sidebar');
+const closeIcon = document.querySelector('.close-icon');
 
-openSidebar.addEventListener('click', () => {
-  sidebar.classList.add('active');
+menuIcon.addEventListener('click', () => {
+  sidebar.classList.add('open');
 });
 
-closeSidebar.addEventListener('click', () => {
-  sidebar.classList.remove('active');
+closeIcon.addEventListener('click', () => {
+  sidebar.classList.remove('open');
 });
